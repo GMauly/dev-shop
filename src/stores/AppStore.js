@@ -3,6 +3,7 @@
 import EventEmitter from 'eventemitter3';
 import Dispatcher from '../core/Dispatcher';
 import ActionTypes from '../constants/ActionTypes';
+import NotFoundPage from '../components/NotFoundPage';
 
 const CHANGE_EVENT = 'change';
 
@@ -66,6 +67,9 @@ AppStore.dispatchToken = Dispatcher.register((action) => {
     case ActionTypes.RECEIVE_PAGE:
       loading = false;
       if (!action.err) {
+        if (!action.page) {
+          action.page = NotFoundPage;
+        }
         pages[action.page.path] = action.page;
       }
       AppStore.emitChange();

@@ -145,6 +145,7 @@ gulp.task('sync', ['serve'], cb => {
 
   browserSync({
     logPrefix: 'RSK',
+    open: false,
     notify: false,
     // Run as an https by setting 'https: true'
     // Note: this uses an unsigned certificate which on first access

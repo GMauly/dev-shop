@@ -16391,31 +16391,15 @@
   
   var _ContentPage2 = _interopRequireDefault(_ContentPage);
   
-  var _ContactPage = __webpack_require__(185);
-  
-  var _ContactPage2 = _interopRequireDefault(_ContactPage);
-  
-  var _LoginPage = __webpack_require__(190);
-  
-  var _LoginPage2 = _interopRequireDefault(_LoginPage);
-  
-  var _RegisterPage = __webpack_require__(193);
-  
-  var _RegisterPage2 = _interopRequireDefault(_RegisterPage);
-  
   var _NotFoundPage = __webpack_require__(192);
   
   var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
-  
-  var _Feedback = __webpack_require__(187);
-  
-  var _Feedback2 = _interopRequireDefault(_Feedback);
   
   var _Footer = __webpack_require__(188);
   
   var _Footer2 = _interopRequireDefault(_Footer);
   
-  var pages = { ContentPage: _ContentPage2['default'], ContactPage: _ContactPage2['default'], LoginPage: _LoginPage2['default'], RegisterPage: _RegisterPage2['default'], NotFoundPage: _NotFoundPage2['default'] };
+  var pages = { ContentPage: _ContentPage2['default'], NotFoundPage: _NotFoundPage2['default'] };
   
   var App = (function () {
     function App() {
@@ -16452,18 +16436,6 @@
             var page = _storesAppStore2['default'].getPage(this.props.path);
             component = _react2['default'].createElement(pages[page.component], page);
             break;
-  
-          case '/contact':
-            component = _react2['default'].createElement(_ContactPage2['default'], null);
-            break;
-  
-          case '/login':
-            component = _react2['default'].createElement(_LoginPage2['default'], null);
-            break;
-  
-          case '/register':
-            component = _react2['default'].createElement(_RegisterPage2['default'], null);
-            break;
         }
   
         return component ? _react2['default'].createElement(
@@ -16471,7 +16443,6 @@
           null,
           _react2['default'].createElement(_Header2['default'], null),
           component,
-          _react2['default'].createElement(_Feedback2['default'], null),
           _react2['default'].createElement(_Footer2['default'], null)
         ) : _react2['default'].createElement(_NotFoundPage2['default'], null);
       }
@@ -16497,82 +16468,7 @@
   module.exports = exports['default'];
 
 /***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-  /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
-  'use strict';
-  
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-  
-  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
-  var _react = __webpack_require__(8);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _ContactPageLess = __webpack_require__(290);
-  
-  var _ContactPageLess2 = _interopRequireDefault(_ContactPageLess);
-  
-  var _decoratorsWithStyles = __webpack_require__(15);
-  
-  var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
-  var ContactPage = (function () {
-    function ContactPage() {
-      _classCallCheck(this, _ContactPage);
-    }
-  
-    var _ContactPage = ContactPage;
-  
-    _createClass(_ContactPage, [{
-      key: 'render',
-      value: function render() {
-        var title = 'Contact Us';
-        this.context.onSetTitle(title);
-        return _react2['default'].createElement(
-          'div',
-          { className: 'ContactPage' },
-          _react2['default'].createElement(
-            'div',
-            { className: 'ContactPage-container' },
-            _react2['default'].createElement(
-              'h1',
-              null,
-              title
-            ),
-            _react2['default'].createElement(
-              'p',
-              null,
-              '...'
-            )
-          )
-        );
-      }
-    }], [{
-      key: 'contextTypes',
-      value: {
-        onSetTitle: _react.PropTypes.func.isRequired
-      },
-      enumerable: true
-    }]);
-  
-    ContactPage = (0, _decoratorsWithStyles2['default'])(_ContactPageLess2['default'])(ContactPage) || ContactPage;
-    return ContactPage;
-  })();
-  
-  exports['default'] = ContactPage;
-  module.exports = exports['default'];
-
-/***/ },
+/* 185 */,
 /* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -16652,79 +16548,7 @@
   module.exports = exports['default'];
 
 /***/ },
-/* 187 */
-/***/ function(module, exports, __webpack_require__) {
-
-  /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
-  'use strict';
-  
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-  
-  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
-  var _react = __webpack_require__(8);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _FeedbackLess = __webpack_require__(292);
-  
-  var _FeedbackLess2 = _interopRequireDefault(_FeedbackLess);
-  
-  var _decoratorsWithStyles = __webpack_require__(15);
-  
-  var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
-  var Feedback = (function () {
-    function Feedback() {
-      _classCallCheck(this, _Feedback);
-    }
-  
-    var _Feedback = Feedback;
-  
-    _createClass(_Feedback, [{
-      key: 'render',
-      value: function render() {
-        return _react2['default'].createElement(
-          'div',
-          { className: 'Feedback' },
-          _react2['default'].createElement(
-            'div',
-            { className: 'Feedback-container' },
-            _react2['default'].createElement(
-              'a',
-              { className: 'Feedback-link', href: 'https://gitter.im/kriasoft/react-starter-kit' },
-              'Ask a question'
-            ),
-            _react2['default'].createElement(
-              'span',
-              { className: 'Feedback-spacer' },
-              '|'
-            ),
-            _react2['default'].createElement(
-              'a',
-              { className: 'Feedback-link', href: 'https://github.com/kriasoft/react-starter-kit/issues/new' },
-              'Report an issue'
-            )
-          )
-        );
-      }
-    }]);
-  
-    Feedback = (0, _decoratorsWithStyles2['default'])(_FeedbackLess2['default'])(Feedback) || Feedback;
-    return Feedback;
-  })();
-  
-  exports['default'] = Feedback;
-  module.exports = exports['default'];
-
-/***/ },
+/* 187 */,
 /* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -16913,7 +16737,7 @@
               _react2['default'].createElement(
                 'span',
                 { className: 'Header-brandTxt' },
-                'Your Company'
+                'Dev-Shop'
               )
             ),
             _react2['default'].createElement(_Navigation2['default'], { className: 'Header-nav' }),
@@ -16923,12 +16747,7 @@
               _react2['default'].createElement(
                 'h1',
                 { className: 'Header-bannerTitle' },
-                'React'
-              ),
-              _react2['default'].createElement(
-                'p',
-                { className: 'Header-bannerDesc' },
-                'Complex web apps made easy'
+                'Compra de desenvolvedores'
               )
             )
           )
@@ -16944,82 +16763,7 @@
   module.exports = exports['default'];
 
 /***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-  /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
-  'use strict';
-  
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-  
-  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
-  var _react = __webpack_require__(8);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _LoginPageLess = __webpack_require__(295);
-  
-  var _LoginPageLess2 = _interopRequireDefault(_LoginPageLess);
-  
-  var _decoratorsWithStyles = __webpack_require__(15);
-  
-  var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
-  var LoginPage = (function () {
-    function LoginPage() {
-      _classCallCheck(this, _LoginPage);
-    }
-  
-    var _LoginPage = LoginPage;
-  
-    _createClass(_LoginPage, [{
-      key: 'render',
-      value: function render() {
-        var title = 'Log In';
-        this.context.onSetTitle(title);
-        return _react2['default'].createElement(
-          'div',
-          { className: 'LoginPage' },
-          _react2['default'].createElement(
-            'div',
-            { className: 'LoginPage-container' },
-            _react2['default'].createElement(
-              'h1',
-              null,
-              title
-            ),
-            _react2['default'].createElement(
-              'p',
-              null,
-              '...'
-            )
-          )
-        );
-      }
-    }], [{
-      key: 'contextTypes',
-      value: {
-        onSetTitle: _react.PropTypes.func.isRequired
-      },
-      enumerable: true
-    }]);
-  
-    LoginPage = (0, _decoratorsWithStyles2['default'])(_LoginPageLess2['default'])(LoginPage) || LoginPage;
-    return LoginPage;
-  })();
-  
-  exports['default'] = LoginPage;
-  module.exports = exports['default'];
-
-/***/ },
+/* 190 */,
 /* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17072,13 +16816,8 @@
           { className: (0, _classnames2['default'])(this.props.className, 'Navigation'), role: 'navigation' },
           _react2['default'].createElement(
             'a',
-            { className: 'Navigation-link', href: '/about', onClick: _utilsLink2['default'].handleClick },
-            'About'
-          ),
-          _react2['default'].createElement(
-            'a',
-            { className: 'Navigation-link', href: '/contact', onClick: _utilsLink2['default'].handleClick },
-            'Contact'
+            { className: 'Navigation-link', href: '/', onClick: _utilsLink2['default'].handleClick },
+            'Desenvolvedores'
           ),
           _react2['default'].createElement(
             'span',
@@ -17087,18 +16826,8 @@
           ),
           _react2['default'].createElement(
             'a',
-            { className: 'Navigation-link', href: '/login', onClick: _utilsLink2['default'].handleClick },
-            'Log in'
-          ),
-          _react2['default'].createElement(
-            'span',
-            { className: 'Navigation-spacer' },
-            'or'
-          ),
-          _react2['default'].createElement(
-            'a',
-            { className: 'Navigation-link Navigation-link--highlight', href: '/register', onClick: _utilsLink2['default'].handleClick },
-            'Sign up'
+            { className: 'Navigation-link', href: '/contact', onClick: _utilsLink2['default'].handleClick },
+            'Meu Carrinho'
           )
         );
       }
@@ -17192,82 +16921,7 @@
   module.exports = exports['default'];
 
 /***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-  /*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-  
-  'use strict';
-  
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-  
-  var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-  
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-  
-  var _react = __webpack_require__(8);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _decoratorsWithStyles = __webpack_require__(15);
-  
-  var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
-  
-  var _RegisterPageLess = __webpack_require__(298);
-  
-  var _RegisterPageLess2 = _interopRequireDefault(_RegisterPageLess);
-  
-  var RegisterPage = (function () {
-    function RegisterPage() {
-      _classCallCheck(this, _RegisterPage);
-    }
-  
-    var _RegisterPage = RegisterPage;
-  
-    _createClass(_RegisterPage, [{
-      key: 'render',
-      value: function render() {
-        var title = 'New User Registration';
-        this.context.onSetTitle(title);
-        return _react2['default'].createElement(
-          'div',
-          { className: 'RegisterPage' },
-          _react2['default'].createElement(
-            'div',
-            { className: 'RegisterPage-container' },
-            _react2['default'].createElement(
-              'h1',
-              null,
-              title
-            ),
-            _react2['default'].createElement(
-              'p',
-              null,
-              '...'
-            )
-          )
-        );
-      }
-    }], [{
-      key: 'contextTypes',
-      value: {
-        onSetTitle: _react.PropTypes.func.isRequired
-      },
-      enumerable: true
-    }]);
-  
-    RegisterPage = (0, _decoratorsWithStyles2['default'])(_RegisterPageLess2['default'])(RegisterPage) || RegisterPage;
-    return RegisterPage;
-  })();
-  
-  exports['default'] = RegisterPage;
-  module.exports = exports['default'];
-
-/***/ },
+/* 193 */,
 /* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17480,6 +17134,10 @@
   
   var _constantsActionTypes2 = _interopRequireDefault(_constantsActionTypes);
   
+  var _componentsNotFoundPage = __webpack_require__(192);
+  
+  var _componentsNotFoundPage2 = _interopRequireDefault(_componentsNotFoundPage);
+  
   var CHANGE_EVENT = 'change';
   
   var pages = {};
@@ -17542,6 +17200,9 @@
       case _constantsActionTypes2['default'].RECEIVE_PAGE:
         loading = false;
         if (!action.err) {
+          if (!action.page) {
+            action.page = _componentsNotFoundPage2['default'];
+          }
           pages[action.page.path] = action.page;
         }
         AppStore.emitChange();
@@ -17625,13 +17286,7 @@
   exports.push([module.id, "/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\n/**\n * 1. Set default font family to sans-serif.\n * 2. Prevent iOS and IE text size adjust after device orientation change,\n *    without disabling user zoom.\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */\n}\n/**\n * Remove default margin.\n */\nbody {\n  margin: 0;\n}\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Correct `block` display not defined for any HTML5 element in IE 8/9.\n * Correct `block` display not defined for `details` or `summary` in IE 10/11\n * and Firefox.\n * Correct `block` display not defined for `main` in IE 11.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\n/**\n * 1. Correct `inline-block` display not defined in IE 8/9.\n * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  /* 1 */\n  vertical-align: baseline;\n  /* 2 */\n}\n/**\n * Prevent modern browsers from displaying `audio` without controls.\n * Remove excess height in iOS 5 devices.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n/**\n * Address `[hidden]` styling not present in IE 8/9/10.\n * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.\n */\n[hidden],\ntemplate {\n  display: none;\n}\n/* Links\n   ========================================================================== */\n/**\n * Remove the gray background color from active links in IE 10.\n */\na {\n  background-color: transparent;\n}\n/**\n * Improve readability of focused elements when they are also in an\n * active/hover state.\n */\na:active,\na:hover {\n  outline: 0;\n}\n/* Text-level semantics\n   ========================================================================== */\n/**\n * Address styling not present in IE 8/9/10/11, Safari, and Chrome.\n */\nabbr[title] {\n  border-bottom: 1px dotted;\n}\n/**\n * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.\n */\nb,\nstrong {\n  font-weight: bold;\n}\n/**\n * Address styling not present in Safari and Chrome.\n */\ndfn {\n  font-style: italic;\n}\n/**\n * Address variable `h1` font-size and margin within `section` and `article`\n * contexts in Firefox 4+, Safari, and Chrome.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\n/**\n * Address styling not present in IE 8/9.\n */\nmark {\n  background: #ff0;\n  color: #000;\n}\n/**\n * Address inconsistent and variable font size in all browsers.\n */\nsmall {\n  font-size: 80%;\n}\n/**\n * Prevent `sub` and `sup` affecting `line-height` in all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsup {\n  top: -0.5em;\n}\nsub {\n  bottom: -0.25em;\n}\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove border when inside `a` element in IE 8/9/10.\n */\nimg {\n  border: 0;\n}\n/**\n * Correct overflow not hidden in IE 9/10/11.\n */\nsvg:not(:root) {\n  overflow: hidden;\n}\n/* Grouping content\n   ========================================================================== */\n/**\n * Address margin not present in IE 8/9 and Safari.\n */\nfigure {\n  margin: 1em 40px;\n}\n/**\n * Address differences between Firefox and other browsers.\n */\nhr {\n  -webkit-box-sizing: content-box;\n     -moz-box-sizing: content-box;\n          box-sizing: content-box;\n  height: 0;\n}\n/**\n * Contain overflow in all browsers.\n */\npre {\n  overflow: auto;\n}\n/**\n * Address odd `em`-unit font size rendering in all browsers.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\n/* Forms\n   ========================================================================== */\n/**\n * Known limitation: by default, Chrome and Safari on OS X allow very limited\n * styling of `select`, unless a `border` property is set.\n */\n/**\n * 1. Correct color not being inherited.\n *    Known issue: affects color of disabled elements.\n * 2. Correct font properties not being inherited.\n * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.\n */\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  /* 1 */\n  font: inherit;\n  /* 2 */\n  margin: 0;\n  /* 3 */\n}\n/**\n * Address `overflow` set to `hidden` in IE 8/9/10/11.\n */\nbutton {\n  overflow: visible;\n}\n/**\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\n * All other form control elements do not inherit `text-transform` values.\n * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.\n * Correct `select` style inheritance in Firefox.\n */\nbutton,\nselect {\n  text-transform: none;\n}\n/**\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\n *    and `video` controls.\n * 2. Correct inability to style clickable `input` types in iOS.\n * 3. Improve usability and consistency of cursor style between image-type\n *    `input` and others.\n */\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */\n  cursor: pointer;\n  /* 3 */\n}\n/**\n * Re-set default cursor for disabled elements.\n */\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\n/**\n * Remove inner padding and border in Firefox 4+.\n */\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\n/**\n * Address Firefox 4+ setting `line-height` on `input` using `!important` in\n * the UA stylesheet.\n */\ninput {\n  line-height: normal;\n}\n/**\n * It's recommended that you don't attempt to style these elements.\n * Firefox's implementation doesn't respect box-sizing, padding, or width.\n *\n * 1. Address box sizing set to `content-box` in IE 8/9/10.\n * 2. Remove excess padding in IE 8/9/10.\n */\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  -webkit-box-sizing: border-box;\n     -moz-box-sizing: border-box;\n          box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n}\n/**\n * Fix the cursor style for Chrome's increment/decrement buttons. For certain\n * `font-size` values of the `input`, it causes the cursor style of the\n * decrement button to change from `default` to `text`.\n */\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\n/**\n * 1. Address `appearance` set to `searchfield` in Safari and Chrome.\n * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.\n */\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  -webkit-box-sizing: content-box;\n     -moz-box-sizing: content-box;\n          box-sizing: content-box;\n  /* 2 */\n}\n/**\n * Remove inner padding and search cancel button in Safari and Chrome on OS X.\n * Safari (but not Chrome) clips the cancel button when the search input has\n * padding (and `textfield` appearance).\n */\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n/**\n * Define consistent border, margin, and padding.\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\n/**\n * 1. Correct `color` not being inherited in IE 8/9/10/11.\n * 2. Remove padding so people aren't caught out if they zero out fieldsets.\n */\nlegend {\n  border: 0;\n  /* 1 */\n  padding: 0;\n  /* 2 */\n}\n/**\n * Remove default vertical scrollbar in IE 8/9/10/11.\n */\ntextarea {\n  overflow: auto;\n}\n/**\n * Don't inherit the `font-weight` (applied by a rule above).\n * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.\n */\noptgroup {\n  font-weight: bold;\n}\n/* Tables\n   ========================================================================== */\n/**\n * Remove most spacing between table cells.\n */\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\ntd,\nth {\n  padding: 0;\n}\n/*! React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\nhtml {\n  color: #222;\n  font-weight: 100;\n  font-size: 1em;\n  font-family: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n  line-height: 1.375;\n}\n/*\n * Remove text-shadow in selection highlight:\n * https://twitter.com/miketaylr/status/12228805301\n *\n * These selection rule sets have to be separate.\n * Customize the background color to match your design.\n */\n::-moz-selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n::selection {\n  background: #b3d4fc;\n  text-shadow: none;\n}\n/*\n * A better looking default horizontal rule\n */\nhr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #ccc;\n  margin: 1em 0;\n  padding: 0;\n}\n/*\n * Remove the gap between audio, canvas, iframes,\n * images, videos and the bottom of their containers:\n * https://github.com/h5bp/html5-boilerplate/issues/440\n */\naudio,\ncanvas,\niframe,\nimg,\nsvg,\nvideo {\n  vertical-align: middle;\n}\n/*\n * Remove default fieldset styles.\n */\nfieldset {\n  border: 0;\n  margin: 0;\n  padding: 0;\n}\n/*\n * Allow only vertical resizing of textareas.\n */\ntextarea {\n  resize: vertical;\n}\n.browserupgrade {\n  margin: 0.2em 0;\n  background: #ccc;\n  color: #000;\n  padding: 0.2em 0;\n}\n@media print {\n  *,\n  *:before,\n  *:after {\n    background: transparent !important;\n    color: #000 !important;\n    /* Black prints faster: http://www.sanbeiji.com/archives/953 */\n    -webkit-box-shadow: none !important;\n            box-shadow: none !important;\n    text-shadow: none !important;\n  }\n  a,\n  a:visited {\n    text-decoration: underline;\n  }\n  a[href]:after {\n    content: \" (\" attr(href) \")\";\n  }\n  abbr[title]:after {\n    content: \" (\" attr(title) \")\";\n  }\n  /*\n   * Don't show links that are fragment identifiers,\n   * or use the `javascript:` pseudo protocol\n   */\n  a[href^=\"#\"]:after,\n  a[href^=\"javascript:\"]:after {\n    content: \"\";\n  }\n  pre,\n  blockquote {\n    border: 1px solid #999;\n    page-break-inside: avoid;\n  }\n  /*\n   * Printing Tables:\n   * http://css-discuss.incutio.com/wiki/Printing_Tables\n   */\n  thead {\n    display: table-header-group;\n  }\n  tr,\n  img {\n    page-break-inside: avoid;\n  }\n  img {\n    max-width: 100% !important;\n  }\n  p,\n  h2,\n  h3 {\n    orphans: 3;\n    widows: 3;\n  }\n  h2,\n  h3 {\n    page-break-after: avoid;\n  }\n}\n", ""]);
 
 /***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.ContactPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-
-/***/ },
+/* 200 */,
 /* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17639,13 +17294,7 @@
   exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.ContentPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
 
 /***/ },
-/* 202 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.Feedback {\n  background: #f5f5f5;\n  color: #333;\n}\n.Feedback-container {\n  margin: 0 auto;\n  padding: 20px 8px;\n  max-width: 1000px;\n  text-align: center;\n  font-size: 1.5em;\n}\n.Feedback-link,\n.Feedback-link:active,\n.Feedback-link:hover,\n.Feedback-link:visited {\n  color: #333;\n  text-decoration: none;\n}\n.Feedback-link:hover {\n  text-decoration: underline;\n}\n.Feedback-spacer {\n  padding-right: 15px;\n  padding-left: 15px;\n}\n", ""]);
-
-/***/ },
+/* 202 */,
 /* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17660,13 +17309,7 @@
   exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.Header {\n  background: #373277;\n  color: #fff;\n}\n.Header-container {\n  margin: 0 auto;\n  padding: 20px 0;\n  max-width: 1000px;\n}\n.Header-brand {\n  color: #93e6fc;\n  text-decoration: none;\n  font-size: 1.75em;\n}\n.Header-brandTxt {\n  margin-left: 10px;\n}\n.Header-nav {\n  float: right;\n  margin-top: 6px;\n}\n.Header-banner {\n  text-align: center;\n}\n.Header-bannerTitle {\n  margin: 0;\n  padding: 10px;\n  font-weight: normal;\n  font-size: 4em;\n  line-height: 1em;\n}\n.Header-bannerDesc {\n  padding: 0;\n  color: rgba(255, 255, 255, 0.5);\n  font-size: 1.25em;\n  margin: 0;\n}\n", ""]);
 
 /***/ },
-/* 205 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.LoginPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-
-/***/ },
+/* 205 */,
 /* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -17681,13 +17324,7 @@
   exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n* {\n  margin: 0;\n  line-height: 1.2;\n}\nhtml {\n  display: table;\n  width: 100%;\n  height: 100%;\n  color: #888;\n  text-align: center;\n  font-family: sans-serif;\n}\nbody {\n  display: table-cell;\n  margin: 2em auto;\n  vertical-align: middle;\n}\nh1 {\n  color: #555;\n  font-weight: 400;\n  font-size: 2em;\n}\np {\n  margin: 0 auto;\n  width: 280px;\n}\n@media only screen and (max-width: 280px) {\n  body,\n  p {\n    width: 95%;\n  }\n  h1 {\n    font-size: 1.5em;\n    margin: 0 0 0.3em;\n  }\n}\n", ""]);
 
 /***/ },
-/* 208 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(16)();
-  exports.push([module.id, "/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */\n.RegisterPage-container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", ""]);
-
-/***/ },
+/* 208 */,
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28080,46 +27717,7 @@
   }
 
 /***/ },
-/* 290 */
-/***/ function(module, exports, __webpack_require__) {
-
-  var refs = 0;
-  var dispose;
-  var content = __webpack_require__(200);
-  if(typeof content === 'string') content = [[module.id, content, '']];
-  exports.use = exports.ref = function() {
-  	if(!(refs++)) {
-  		exports.locals = content.locals;
-  		dispose = __webpack_require__(19)(content);
-  	}
-  	return exports;
-  };
-  exports.unuse = exports.unref = function() {
-  	if(!(--refs)) {
-  		dispose();
-  		dispose = null;
-  	}
-  };
-  if(false) {
-  	var lastRefs = module.hot.data && module.hot.data.refs || 0;
-  	if(lastRefs) {
-  		exports.ref();
-  		if(!content.locals) {
-  			refs = lastRefs;
-  		}
-  	}
-  	if(!content.locals) {
-  		module.hot.accept();
-  	}
-  	module.hot.dispose(function(data) {
-  		data.refs = content.locals ? 0 : refs;
-  		if(dispose) {
-  			dispose();
-  		}
-  	});
-  }
-
-/***/ },
+/* 290 */,
 /* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28160,46 +27758,7 @@
   }
 
 /***/ },
-/* 292 */
-/***/ function(module, exports, __webpack_require__) {
-
-  var refs = 0;
-  var dispose;
-  var content = __webpack_require__(202);
-  if(typeof content === 'string') content = [[module.id, content, '']];
-  exports.use = exports.ref = function() {
-  	if(!(refs++)) {
-  		exports.locals = content.locals;
-  		dispose = __webpack_require__(19)(content);
-  	}
-  	return exports;
-  };
-  exports.unuse = exports.unref = function() {
-  	if(!(--refs)) {
-  		dispose();
-  		dispose = null;
-  	}
-  };
-  if(false) {
-  	var lastRefs = module.hot.data && module.hot.data.refs || 0;
-  	if(lastRefs) {
-  		exports.ref();
-  		if(!content.locals) {
-  			refs = lastRefs;
-  		}
-  	}
-  	if(!content.locals) {
-  		module.hot.accept();
-  	}
-  	module.hot.dispose(function(data) {
-  		data.refs = content.locals ? 0 : refs;
-  		if(dispose) {
-  			dispose();
-  		}
-  	});
-  }
-
-/***/ },
+/* 292 */,
 /* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28280,46 +27839,7 @@
   }
 
 /***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-  var refs = 0;
-  var dispose;
-  var content = __webpack_require__(205);
-  if(typeof content === 'string') content = [[module.id, content, '']];
-  exports.use = exports.ref = function() {
-  	if(!(refs++)) {
-  		exports.locals = content.locals;
-  		dispose = __webpack_require__(19)(content);
-  	}
-  	return exports;
-  };
-  exports.unuse = exports.unref = function() {
-  	if(!(--refs)) {
-  		dispose();
-  		dispose = null;
-  	}
-  };
-  if(false) {
-  	var lastRefs = module.hot.data && module.hot.data.refs || 0;
-  	if(lastRefs) {
-  		exports.ref();
-  		if(!content.locals) {
-  			refs = lastRefs;
-  		}
-  	}
-  	if(!content.locals) {
-  		module.hot.accept();
-  	}
-  	module.hot.dispose(function(data) {
-  		data.refs = content.locals ? 0 : refs;
-  		if(dispose) {
-  			dispose();
-  		}
-  	});
-  }
-
-/***/ },
+/* 295 */,
 /* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28400,46 +27920,7 @@
   }
 
 /***/ },
-/* 298 */
-/***/ function(module, exports, __webpack_require__) {
-
-  var refs = 0;
-  var dispose;
-  var content = __webpack_require__(208);
-  if(typeof content === 'string') content = [[module.id, content, '']];
-  exports.use = exports.ref = function() {
-  	if(!(refs++)) {
-  		exports.locals = content.locals;
-  		dispose = __webpack_require__(19)(content);
-  	}
-  	return exports;
-  };
-  exports.unuse = exports.unref = function() {
-  	if(!(--refs)) {
-  		dispose();
-  		dispose = null;
-  	}
-  };
-  if(false) {
-  	var lastRefs = module.hot.data && module.hot.data.refs || 0;
-  	if(lastRefs) {
-  		exports.ref();
-  		if(!content.locals) {
-  			refs = lastRefs;
-  		}
-  	}
-  	if(!content.locals) {
-  		module.hot.accept();
-  	}
-  	module.hot.dispose(function(data) {
-  		data.refs = content.locals ? 0 : refs;
-  		if(dispose) {
-  			dispose();
-  		}
-  	});
-  }
-
-/***/ },
+/* 298 */,
 /* 299 */
 /***/ function(module, exports, __webpack_require__) {
 

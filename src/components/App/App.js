@@ -8,14 +8,10 @@ import AppActions from '../../actions/AppActions';
 import AppStore from '../../stores/AppStore';
 import Header from '../Header';
 import ContentPage from '../ContentPage';
-import ContactPage from '../ContactPage';
-import LoginPage from '../LoginPage';
-import RegisterPage from '../RegisterPage';
 import NotFoundPage from '../NotFoundPage';
-import Feedback from '../Feedback';
 import Footer from '../Footer';
 
-const pages = { ContentPage, ContactPage, LoginPage, RegisterPage, NotFoundPage };
+const pages = { ContentPage, NotFoundPage };
 
 @withContext
 @withStyles(styles)
@@ -48,25 +44,12 @@ class App {
         let page = AppStore.getPage(this.props.path);
         component = React.createElement(pages[page.component], page);
         break;
-
-      case '/contact':
-        component = <ContactPage />;
-        break;
-
-      case '/login':
-        component = <LoginPage />;
-        break;
-
-      case '/register':
-        component = <RegisterPage />;
-        break;
     }
 
     return component ? (
       <div>
         <Header />
         {component}
-        <Feedback />
         <Footer />
       </div>
     ) : <NotFoundPage />;

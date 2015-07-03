@@ -5524,9 +5524,13 @@ module.exports =
   
   var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
   
+  var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
   
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+  
+  function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
   
   var _react = __webpack_require__(6);
   
@@ -5536,6 +5540,10 @@ module.exports =
   
   var _SearchLess2 = _interopRequireDefault(_SearchLess);
   
+  var _request = __webpack_require__(139);
+  
+  var _request2 = _interopRequireDefault(_request);
+  
   var _decoratorsWithStyles = __webpack_require__(11);
   
   var _decoratorsWithStyles2 = _interopRequireDefault(_decoratorsWithStyles);
@@ -5544,18 +5552,32 @@ module.exports =
   
   var _utilsLink2 = _interopRequireDefault(_utilsLink);
   
-  var Search = (function () {
+  var Search = (function (_React$Component) {
     function Search() {
       _classCallCheck(this, _Search);
+  
+      _get(Object.getPrototypeOf(_Search.prototype), 'constructor', this).apply(this, arguments);
     }
+  
+    _inherits(Search, _React$Component);
   
     var _Search = Search;
   
     _createClass(_Search, [{
+      key: 'onChange',
+      value: function onChange() {
+        (0, _request2['default'])('http://www.google.com.br/', function (error, response, body) {
+          if (!error && response.statusCode === 200) {
+            console.log(body);
+          };
+        });
+      }
+    }, {
       key: 'render',
       value: function render() {
         var title = 'Pesquisa de desenvolvedores';
         this.context.onSetTitle(title);
+  
         return _react2['default'].createElement(
           'div',
           { className: 'Search' },
@@ -5573,17 +5595,19 @@ module.exports =
             ),
             _react2['default'].createElement(
               'div',
-              { className: 'Search-banner' },
-              _react2['default'].createElement(
-                'h1',
-                { className: 'Search-bannerTitle' },
-                'Loja de desenvolvedores'
-              )
+              { className: 'Search-developer' },
+              _react2['default'].createElement('input', { className: 'Search-developer-input', type: 'text', value: this.props.developer })
             )
           )
         );
       }
     }], [{
+      key: 'propTypes',
+      value: {
+        developer: _react.PropTypes.func.isString
+      },
+      enumerable: true
+    }, {
       key: 'contextTypes',
       value: {
         onSetTitle: _react.PropTypes.func.isRequired
@@ -5593,7 +5617,7 @@ module.exports =
   
     Search = (0, _decoratorsWithStyles2['default'])(_SearchLess2['default'])(Search) || Search;
     return Search;
-  })();
+  })(_react2['default'].Component);
   
   exports['default'] = Search;
   module.exports = exports['default'];
@@ -5993,6 +6017,13 @@ module.exports =
 /***/ function(module, exports) {
 
   module.exports = require("superagent");
+
+/***/ },
+/* 138 */,
+/* 139 */
+/***/ function(module, exports) {
+
+  module.exports = require("request");
 
 /***/ }
 /******/ ]);

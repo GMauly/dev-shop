@@ -19,7 +19,7 @@ class Header {
           </a>
           <Navigation className="Header-nav" />
           <div className="Header-banner">
-            <h1 className="Header-bannerTitle">Compra de desenvolvedores</h1>
+            <h1 className="Header-bannerTitle">Loja de desenvolvedores</h1>
           </div>
         </div>
       </div>

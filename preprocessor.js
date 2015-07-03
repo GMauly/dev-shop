@@ -10,7 +10,7 @@
 
 var babel = require('babel-core');
 
-module.exports = {
+var preprocessor = {
   process: function(src, filename) {
     // Ignore files other than .js, .es, .jsx or .es6
     if (!babel.canCompile(filename)) {
@@ -23,3 +23,5 @@ module.exports = {
     return src;
   }
 };
+
+module.exports = preprocessor;

@@ -10,6 +10,7 @@ import path from 'path';
 import cp from 'child_process';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import gulpShell from 'gulp-shell';
 import del from 'del';
 import mkdirp from 'mkdirp';
 import runSequence from 'run-sequence';
@@ -17,6 +18,7 @@ import webpack from 'webpack';
 import minimist from 'minimist';
 
 const $ = gulpLoadPlugins();
+
 const argv = minimist(process.argv.slice(2));
 const src = Object.create(null);
 
@@ -165,6 +167,12 @@ gulp.task('sync', ['serve'], cb => {
   });
 });
 
+// Automating tests
+gulp.task('jest', $.shell.task('npm test', {
+  // Make task keep running after test fails
+  ignoreErrors: true
+}));
+
 // Deploy via Git
 gulp.task('deploy', cb => {
   const push = require('git-push');
@@ -184,4 +192,10 @@ gulp.task('pagespeed', cb => {
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
   }, cb);
+});
+
+// Task for testing code
+gulp.task('test', function() {
+  runSequence('jest');
+  gulp.watch(['src/**/*.js', '__tests__/*.js'], ['jest']);
 });

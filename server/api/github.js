@@ -19,9 +19,12 @@ function GitOrg (org) {
 GitOrg.prototype.getMembers = function() {
   options['url'] = this.members_url;
   console.log(options.url);
+  var members = {};
+
   request(options, function (error, response, body) {
-    if (!error) {
-      console.log(body);
+    if (!error && response.status == 200) {
+      var gitUsers = JSON.parse(body);
+      return gitUsers;
     }
   });
 }
@@ -32,7 +35,8 @@ module.exports = {
     getMembers: function (req, res) {
       var organization = req.params.organization;
       var org = new GitOrg(organization);
-      org.getMembers();
+      var members = org.getMembers();
+      res.append(members);
     }
   }
 };

@@ -9,7 +9,6 @@ var gulp = require('gulp');
 
 var childProcess = require('child_process');
 var path = require('path');
-var webpack = require('webpack');
 var del = require('del');
 var mkdirp = require('mkdirp');
 
@@ -35,8 +34,6 @@ var src_server = [
   'server/views/**/*.jade'
 ];
 
-var watch = false;
-
 var watchFiles = jsFiles.concat(lessFiles, cssFiles, src_server);
 
 // Clean output directory
@@ -61,7 +58,7 @@ gulp.task('less', function () {
     .pipe(plugins.size({'title': 'less'}));
 });
 
-gulp.task('css', function () {
+gulp.task('css', ['less'], function () {
   return gulp.src(plugins.mainBowerFiles().concat(cssFiles))
     .pipe(plugins.filter('*.css'))
     .pipe(plugins.changed(buildDest + 'css'))
@@ -69,80 +66,36 @@ gulp.task('css', function () {
     .pipe(plugins.size({'title': 'css'}));
 });
 
-gulp.task('build:js', function () {
+gulp.task('build:js', ['js'], function () {
   gulp.src(buildDest + 'js/*.js')
     .pipe(plugins.changed(pubDest + 'js'))
     .pipe(plugins.concat('main.js'))
     .pipe(gulp.dest(pubDest + 'js'))
 });
 
-gulp.task('build:css', function () {
+gulp.task('build:css', ['less', 'css'], function () {
   gulp.src(buildDest + 'css/*.css')
     .pipe(plugins.changed(pubDest + 'css'))
     .pipe(plugins.concat('main.css'))
     .pipe(gulp.dest(pubDest + 'css'))
 });
 
-gulp.task('build:all', ['js', 'less', 'css'], function() {
-  gulp.run(['build:js', 'build:css']);
-});
+gulp.task('build:all', ['build:js', 'build:css']);
 
-/*
-gulp.task('bundle', function (callback) {
-  var config = require('./webpack.config.js');
-  var bundler = webpack(config);
-  var verbose = true;
+gulp.task('build:watch', function () {
 
-  var bundlerRunCount = 0;
-
-  var bundle = function (err, stats) {
-    if (err) {
-      throw new plugins.util.PluginError('webpack', err);
-    }
-
-    console.log(stats.toString({
-      colors: plugins.util.colors.supportsColor,
-      hash: verbose,
-      version: verbose,
-      timings: verbose,
-      chunks: verbose,
-      chunksModules: verbose,
-      cached: verbose,
-      cachedAssets: verbose
-    }));
-
-    if (++bundlerRunCount === (watch ? config.length : 1)) {
-      return callback();
-    }
-  }
-
-  if (watch) {
-    bundler.watch(200, bundle);
-  } else {
-    bundler.run(bundle);
-  }
-});
-*/
-
-gulp.task('build', ['clean', 'build:all']);
-
-gulp.task('build:watch', function (callback) {
-  watch = true;
-
-  gulp.run(['build'], function () {
+  gulp.run(['build:all'], function () {
     // watch .js files
     gulp.watch(jsFiles, ['js', 'build:js']);
 
     // watch .less and .css files
     gulp.watch(lessFiles, ['less', 'build:css']);
     gulp.watch(cssFiles, ['css', 'build:css']);
-
-    callback();
   });
 
 });
 
-gulp.task('server', ['build:watch'], function (callback) {
+gulp.task('server', ['build:watch'], function () {
 
   var started = false;
 
@@ -167,7 +120,6 @@ gulp.task('server', ['build:watch'], function (callback) {
             server = startup();
           });
 
-          callback();
         }
       }
     });
@@ -182,7 +134,7 @@ gulp.task('server', ['build:watch'], function (callback) {
   });
 });
 
-gulp.task('sync', ['server'], function (callback) {
+gulp.task('sync', ['server'], function () {
   browserSync = require('browser-sync');
 
   browserSync({
@@ -191,7 +143,7 @@ gulp.task('sync', ['server'], function (callback) {
     notify: false,
     https: false,
     proxy: 'localhost:5000'
-  }, callback);
+  });
 
   gulp.watch(watchFiles, function (file) {
     browserSync.reload(path.relative(__dirname, file.path));

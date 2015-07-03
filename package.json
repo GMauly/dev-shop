@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "server": "nodemon ./bin/www",
-    "watch": "watchify -t reactify js/main.jsx -o public/javascripts/bundle.js -v"
+    "start": "node ./app.js",
+    "server": "nodemon ./app.js",
+    "watch": "watchify -t reactify js/main.jsx -o public/js/bundle.js -v"
   },
   "dependencies": {
     "babel": "^5.6.14",
@@ -40,9 +40,7 @@
     "node-libs-browser": "^0.5.2",
     "reactify": "^1.1.1",
     "serve-favicon": "~2.2.1",
-    "underscore": "^1.8.3",
-    "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "browser-sync": "^2.7.13"

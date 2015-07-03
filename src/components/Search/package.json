@@ -1,6 +1,0 @@
-{
-  "name": "Busca",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./Search.js"
-}

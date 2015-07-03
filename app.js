@@ -15,6 +15,7 @@ require("node-jsx").install({extension: '.jsx'});
 
 var routes = require('./server/routes/index');
 var users = require('./server/routes/users');
+var apis = require('./server/routes/apis')(app);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));

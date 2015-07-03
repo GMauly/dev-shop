@@ -57,7 +57,7 @@ gulp.task('clean', function (callback) {
 gulp.task('js', function () {
   return gulp.src(lib.ext('js').files.concat(src.js))
     .pipe(plugins.filter('*.js'))
-    //.pipe(plugins.uglify())
+    .pipe(plugins.uglify())
     .pipe(plugins.changed(builddir + 'js'))
     .pipe(gulp.dest(builddir + 'js'))
     .pipe(plugins.size({'title': 'javascripts'}));
@@ -69,6 +69,7 @@ gulp.task('react', function () {
       debug: true,
       transform: ['reactify']
     }))
+    .pipe(plugins.uglify())
     .pipe(plugins.concat('bundle.js'))
     .pipe(gulp.dest(publishdir + 'js'));
 });

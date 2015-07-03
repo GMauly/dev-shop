@@ -6,21 +6,33 @@
 
 var request = require('request');
 
-var github = function (org) {
-  var members_url = 'https://api.github.com/orgs/'+org+'/members';
-
-
-  return {
-    members_url: members_url
+var options = {
+  headers: {
+    'User-Agent': 'urielb'
   }
+};
+
+function GitOrg (org) {
+  this.members_url = 'https://api.github.com/orgs/'+org+'/members';
 }
 
-github.prototype.getMembers = function() {
-  request(this.members_url, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
+GitOrg.prototype.getMembers = function() {
+  options['url'] = this.members_url;
+  console.log(options.url);
+  request(options, function (error, response, body) {
+    if (!error) {
       console.log(body);
     }
   });
 }
 
-module.exports = github;
+module.exports = {
+  GitOrg: GitOrg,
+  methods: {
+    getMembers: function (req, res) {
+      var organization = req.params.organization;
+      var org = new GitOrg(organization);
+      org.getMembers();
+    }
+  }
+};

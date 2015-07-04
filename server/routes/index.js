@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 var React = require('react/addons'),
-  Search = React.createFactory(require('../../react/components/Search/index.jsx'));
+  Search = React.createFactory(require('../../react/Search/components/Search/index.jsx'));
 
 /* GET home page. */
 router.get('/:org?', function(req, res, next) {

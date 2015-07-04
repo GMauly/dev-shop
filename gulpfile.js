@@ -27,7 +27,7 @@ var src = {
   css: ['src/**/*.css', 'dist/**/*.js'],
   js: ['src/**/*.js', 'dist/**/*.js'],
   less: ['src/**/*.less', 'react/**/*.less'],
-  react: 'react/main.js',
+  react: 'react/**/main.jsx',
   bower: ['bower.json', '.bowerrc'],
   server: [
     './app.js',
@@ -64,13 +64,23 @@ gulp.task('js', function () {
 });
 
 gulp.task('react', function () {
-  gulp.src(['react/main.jsx'])
+  gulp.src(['react/Search/main.jsx'])
     .pipe(plugins.browserify({
       debug: true,
       transform: ['reactify']
     }))
     .pipe(plugins.uglify())
-    .pipe(plugins.concat('bundle.js'))
+    .pipe(plugins.concat('search.js'))
+    .pipe(gulp.dest(publishdir + 'js'));
+
+  // Cart app
+  gulp.src(['react/Cart/main.jsx'])
+    .pipe(plugins.browserify({
+      debug: true,
+      transform: ['reactify']
+    }))
+    .pipe(plugins.uglify())
+    .pipe(plugins.concat('cart.js'))
     .pipe(gulp.dest(publishdir + 'js'));
 });
 

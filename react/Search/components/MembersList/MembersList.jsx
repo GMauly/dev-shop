@@ -3,7 +3,7 @@
 var React = require('react/addons');
 var Member = require('./Member.jsx');
 
-var GitMember = require('../../../server/api/git/member').GitMember;
+var GitMember = require('../../../../server/api/git/member').GitMember;
 
 var MembersList = React.createClass({
 

@@ -2,7 +2,6 @@
 
 var React = require('react/addons');
 
-var GitOrg = require('../../../server/api/git/organization');
 var MembersList = require('../MembersList/MembersList.jsx');
 
 var Search = React.createClass({

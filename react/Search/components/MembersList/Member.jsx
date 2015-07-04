@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
-var GitMember = require('../../../server/api/git/member').GitMember;
 
 var Member = React.createClass({
 

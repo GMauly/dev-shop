@@ -40,9 +40,12 @@ module.exports = {
       var organization = req.params.organization;
       var org = new GitOrg(organization);
       res.writeHead(200, {"Content-Type": "application/json"});
-      var mocked_json = require('../../../mocks/search-vtex');
-      //return org.getMembers(res.end.bind(res));
-      return res.end(JSON.stringify(mocked_json));
+
+      //Para testar usando mock
+      //var mocked_json = require('../../../mocks/search-vtex');
+      //return res.end(JSON.stringify(mocked_json));
+
+      return org.getMembers(res.end.bind(res));
     }
   }
 };

@@ -17,6 +17,8 @@ var options = {
   }
 };
 
+var serverAddr = "devshop.bertoche.com.br";
+
 function GitMember(obj) {
   this.login = obj.login;
   this.id = obj.id;
@@ -68,7 +70,7 @@ GitMember.prototype.getAvatarUrl = function () {
 GitMember.prototype.getFollowers = function (callback) {
   var self = this;
   var options = {
-    url: 'http://localhost:3000/api/github/getFollowers/' + this.login
+    url: 'http://'+serverAddr+'/api/github/getFollowers/' + this.login
   };
 
   request(options, function (error, response, body) {
@@ -82,7 +84,7 @@ GitMember.prototype.getFollowers = function (callback) {
 GitMember.prototype.getFollowing = function (callback) {
   var self = this;
   var options = {
-    url: 'http://localhost:3000/api/github/getFollowing/' + this.login
+    url: 'http://'+serverAddr+'/api/github/getFollowing/' + this.login
   };
 
   request(options, function (error, response, body) {
@@ -96,7 +98,7 @@ GitMember.prototype.getFollowing = function (callback) {
 GitMember.prototype.getStarred = function (callback) {
   var self = this;
   var options = {
-    url: 'http://localhost:3000/api/github/getStarred/' + this.login
+    url: 'http://'+serverAddr+'/api/github/getStarred/' + this.login
   };
 
   request(options, function (error, response, body) {
@@ -114,8 +116,8 @@ function getFollowers(req,res,next) {
   options.url = url;
 
   // Mocking results for when github API stops responding
-  res.write("" + random(30));
-  return res.end();
+  // res.write("" + random(30));
+  // return res.end();
 
   // Connect to Github API and returns followers
   var req = request(options, function (error, response, body) {
@@ -133,7 +135,7 @@ function getFollowing(req,res, next) {
   options.url = url;
 
   // Mocking results for when github API stops responding
-  return res.end("" + random(30));
+  // return res.end("" + random(30));
 
   // Connect to Github API and returns followers
   var req = request(options, function (error, response, body) {
@@ -151,8 +153,8 @@ function getStarred(req,res,next) {
   options.url = url;
 
   // Mocking results for when github API stops responding
-  res.write("" + random(30));
-  return res.end();
+  // res.write("" + random(30));
+  // return res.end();
 
   // Connect to Github API and returns followers
   var req = request(options, function (error, response, body) {

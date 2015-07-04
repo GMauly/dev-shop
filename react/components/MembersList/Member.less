@@ -1,9 +1,13 @@
 @import '../../variables.less';
 
 .Member {
+  h3 {
+    margin-top: 0.25em;
+  }
   margin-top: 2em;
   padding: 0.5em 0 0.5em 0.5em;
   background-color: #f5f5ff;
+  vertical-align: middle;
   &-avatar {
     img {
       width: 100px;
@@ -22,5 +26,15 @@
       text-align: center;
     }
     margin-left: 1em;
+  }
+  &-Price {
+    h1 {
+      :first-child {
+        color: #59a600;
+      }
+
+      height: 100%;
+    }
+
   }
 }

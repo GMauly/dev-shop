@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
+
 var GitOrg = require('../../../server/api/git/organization');
 var MembersList = require('../MembersList/MembersList.jsx');
 
@@ -19,6 +20,12 @@ var Search = React.createClass({
     return {
       value: ''
     };
+  },
+
+  componentDidMount: function () {
+    var value = window.location.pathname.replace('/', '');
+    this.setState({value: value});
+    this.forceUpdate(this.getGitMembers);
   },
 
   handleChange: function (event) {
@@ -56,6 +63,8 @@ var Search = React.createClass({
   },
 
   render: function () {
+    console.log(this.state);
+    console.log(this.props);
     var value = this.state.value;
     var members = this.props.members;
     return (

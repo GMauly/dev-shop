@@ -40,8 +40,11 @@ var Member = React.createClass({
                 <span className="text-muted">Following</span></li>
               </ul>
             </div>
-            <div className="col-md-8">
-              <h1>$ {profile.price}</h1>
+            <div className="col-md-6 Member-Price vcenter">
+              <h1>$ {profile.price} / hora</h1>
+            </div>
+            <div className="col-md-2 vcenter">
+              <button className="btn btn-primary">Adicionar</button>
             </div>
           </div>
         </div>

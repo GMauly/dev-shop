@@ -23,18 +23,41 @@ var Search = React.createClass({
   },
 
   componentDidMount: function () {
+    var self = this;
     var value = window.location.pathname.replace('/', '');
+
+    window.onpopstate = function(e) {
+      self.componentDidMount();
+    };
+
     this.setState({value: value});
-    this.forceUpdate(this.getGitMembers);
+
+    if (value.length > 2) {
+      this.forceUpdate(this.getGitMembers);
+    }
   },
 
   handleChange: function (event) {
     this.setState({value: event.target.value});
   },
 
+  updateList: function () {
+    var urlPath = '/' + this.state.value;
+    window.history.pushState(
+      {
+        members: this.props.members,
+        pageTitle: 'Dev-Shop - Organização: ' + this.state.value
+      },
+      'Dev-Shop - Organização: ' + this.state.value,
+      urlPath
+    );
+
+    this.forceUpdate(this.componentDidMount);
+  },
+
   handleKeyDown: function (event) {
     if (event.keyCode == 13) {
-      this.getGitMembers();
+      this.updateList();
     }
   },
 
@@ -63,13 +86,11 @@ var Search = React.createClass({
   },
 
   render: function () {
-    console.log(this.state);
-    console.log(this.props);
     var value = this.state.value;
     var members = this.props.members;
     return (
       <div id="table-area">
-        <div class="input-group">
+        <div className="form-group">
           <input className="form-control" placeholder="Nome da organização" id="search" type="text" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} />
         </div>
 

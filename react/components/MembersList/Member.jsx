@@ -28,7 +28,7 @@ var Member = React.createClass({
           <img src={profile.getAvatarUrl()} />
         </div>
         <div className="Member-info col-md-9">
-          <div className="row">
+          <div className="row-fluid">
             <div className="col-md-4">
               <h3>{profile.login}</h3>
               <ul className="list-inline">
@@ -40,11 +40,17 @@ var Member = React.createClass({
                 <span className="text-muted">Following</span></li>
               </ul>
             </div>
-            <div className="col-md-6 Member-Price vcenter">
+            <div className="col-md-4 Member-Price vcenter">
               <h1>$ {profile.price} / hora</h1>
             </div>
-            <div className="col-md-2 vcenter">
-              <button className="btn btn-primary">Adicionar</button>
+            <div className="col-md-4 vcenter">
+              <div className="form-inline">
+                <div className="form-group">
+                  <label for="horas{profile.id}">Horas à contratar</label>
+                  <input className="form-control" id="horas{profile.id}" placeholder="Horas" />
+                </div>
+                <button className="btn btn-success">Adicionar</button>
+              </div>
             </div>
           </div>
         </div>

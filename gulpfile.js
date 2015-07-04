@@ -24,9 +24,9 @@ var plugins = require("gulp-load-plugins")({
 
 // Define default destination folder
 var src = {
-  css: ['src/**/*.css'],
-  js: ['src/**/*.js'],
-  less: ['src/**/*.less'],
+  css: ['src/**/*.css', 'dist/**/*.js'],
+  js: ['src/**/*.js', 'dist/**/*.js'],
+  less: ['src/**/*.less', 'react/**/*.less'],
   react: 'react/main.js',
   bower: ['bower.json', '.bowerrc'],
   server: [
@@ -102,7 +102,7 @@ gulp.task('build:js', ['js'], function () {
 });
 
 gulp.task('build:css', ['less', 'css'], function () {
-  gulp.src(builddir + 'css/*.css')
+  gulp.src(builddir + 'css/**/*.css')
     .pipe(plugins.changed(publishdir+ 'css'))
     .pipe(plugins.concat('main.css'))
     .pipe(gulp.dest(publishdir + 'css'))

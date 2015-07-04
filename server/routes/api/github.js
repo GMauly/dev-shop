@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 
-var api = require('../../api/github').methods;
+var api = require('../../api/git/organization').methods;
 
 /* GET home page. */
 router.get('/getMembers/:organization/', api.getMembers);

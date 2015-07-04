@@ -7,14 +7,13 @@
 var request = require('request');
 var GitUrls = require('./urls');
 
-var lastModified = new Date();
-lastModified.setMinutes(120);
+var NodeCache = require( "node-cache" );
+var myCache = new NodeCache( { stdTTL: 60*60*3, checkperiod: 120 } );
 
 var options = {
   url: '',
   headers: {
-    'User-Agent': 'urielb',
-    'If-Modified-Since': lastModified.toUTCString()
+    'User-Agent': 'urielb'
   }
 };
 
@@ -105,14 +104,15 @@ GitMember.prototype.getStarred = function (callback) {
   });
 }
 
-function getFollowers(req,res) {
+function getFollowers(req,res,next) {
   var user = req.params.user;
   var url = GitUrls.followers_url;
   url = url.replace('{login}', user);
   options.url = url;
 
   // Mocking results for when github API stops responding
-  return res.end("" + random(30));
+  res.write("" + random(30));
+  return res.end();
 
   // Connect to Github API and returns followers
   var req = request(options, function (error, response, body) {
@@ -123,7 +123,7 @@ function getFollowers(req,res) {
   });
 }
 
-function getFollowing(req,res) {
+function getFollowing(req,res, next) {
   var user = req.params.user;
   var url = GitUrls.following_url;
   url = url.replace('{login}', user);
@@ -141,14 +141,15 @@ function getFollowing(req,res) {
   });
 }
 
-function getStarred(req,res) {
+function getStarred(req,res,next) {
   var user = req.params.user;
   var url = GitUrls.starred_url;
   url = url.replace('{login}', user);
   options.url = url;
 
   // Mocking results for when github API stops responding
-  return res.end("" + random(30));
+  res.write("" + random(30));
+  return res.end();
 
   // Connect to Github API and returns followers
   var req = request(options, function (error, response, body) {

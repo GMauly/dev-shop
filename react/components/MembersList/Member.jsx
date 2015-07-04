@@ -28,16 +28,22 @@ var Member = React.createClass({
           <img src={profile.getAvatarUrl()} />
         </div>
         <div className="Member-info col-md-9">
-          <h3>{profile.login}</h3>
-          <ul className="list-inline">
-            <li><strong className="Member-info-data">{profile.followers}</strong>
-              <span className="text-muted">Followers</span></li>
-            <li><strong className="Member-info-data">{profile.starred}</strong>
-              <span className="text-muted">Starred</span></li>
-            <li><strong className="Member-info-data">{profile.following}</strong>
-            <span className="text-muted">Following</span></li>
-          </ul>
-          <h1>$ {profile.price}</h1>
+          <div className="row">
+            <div className="col-md-4">
+              <h3>{profile.login}</h3>
+              <ul className="list-inline">
+                <li><strong className="Member-info-data">{profile.followers}</strong>
+                  <span className="text-muted">Followers</span></li>
+                <li><strong className="Member-info-data">{profile.starred}</strong>
+                  <span className="text-muted">Starred</span></li>
+                <li><strong className="Member-info-data">{profile.following}</strong>
+                <span className="text-muted">Following</span></li>
+              </ul>
+            </div>
+            <div className="col-md-8">
+              <h1>$ {profile.price}</h1>
+            </div>
+          </div>
         </div>
       </div>
     );

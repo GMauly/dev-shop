@@ -14,7 +14,6 @@ app.set('view engine', 'jade');
 require("node-jsx").install({extension: '.jsx'});
 
 var routes = require('./server/routes/index');
-var users = require('./server/routes/users');
 var apis = require('./server/routes/apis')(app);
 
 // uncomment after placing your favicon in /public
@@ -26,7 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './public')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

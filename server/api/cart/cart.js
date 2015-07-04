@@ -8,16 +8,18 @@ function Cart () {
   this.items = {}
 }
 
-Cart.prototype.addItem = function (id, price, qty) {
-  var item = this.items[id];
+Cart.prototype.addItem = function (cod, id, price, qty) {
+  var item = this.items[cod];
 
   if (!item) {
-    this.items[id] = {
+    this.items[cod] = {
+      cid: id,
       unity_price: price,
       qty: qty,
       total_price: price * qty
     };
   } else {
+    item.cid = id;
     item.unity_price = price;
     item.qty = qty;
     item.total_price = price * qty;
@@ -25,7 +27,8 @@ Cart.prototype.addItem = function (id, price, qty) {
 }
 
 Cart.prototype.removeItem = function (item) {
-  delete this.items[item];
+  var items = this.items;
+  delete items[item];
 }
 
 Cart.prototype.clear = function () {
@@ -36,11 +39,15 @@ Cart.prototype.list = function () {
   var items_array = [];
   for (var key in this.items) {
     var item = {
-      item: key,
+      login: key,
+      id: this.items[key].cid,
       unity_price: this.items[key].unity_price,
       qty: this.items[key].qty,
-      total_price: this.items[key].total_price,
     };
+
+    var total_price = this.items[key].total_price;
+    total_price = total_price.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    item.total_price = total_price;
 
     items_array.push(item);
   }
@@ -56,13 +63,13 @@ Cart.prototype.list = function () {
  * - Retornar carrinho : dado token da sessão
  */
 
-var addItemToCart = function (cartId, item, price, qty) {
+var addItemToCart = function (cartId, item, id, price, qty) {
   if (!carts[cartId]) {
     carts[cartId] = new Cart();
   }
 
   var cart = carts[cartId];
-  cart.addItem(item, price, qty);
+  cart.addItem(item, id, price, qty);
 }
 
 var removeItemFromCart = function (cartId, item) {
@@ -100,19 +107,20 @@ var apis = {
   },
   clearCart: function (req, res) {
     clearCart(req.sessionID);
-    res.end('Cart cleared');
+    res.end('Carrinho limpo');
   },
   removeItem: function (req, res) {
     var item = req.params.item;
     removeItemFromCart(req.sessionID, item);
-    res.send('Item deleted');
+    res.send('Item deletado com sucesso');
   },
   addItem: function (req, res) {
     var item = req.params.item;
+    var id = req.params.id;
     var qty = req.params.qty;
-    var price = req.params.qty;
-    addItemToCart(req.sessionID, item, price, qty);
-    res.send('Item added');
+    var price = req.params.price;
+    addItemToCart(req.sessionID, item, id, price, qty);
+    res.send('Item adicionado com sucesso');
   }
 }
 

@@ -8,9 +8,9 @@ var router = express.Router();
 var api = require('../../api/cart/cart');
 
 router.get('/', api.getCart);
-router.put('/', api.clearCart);
+router.put('/clear/', api.clearCart);
 
-router.post('/:item/:price/:qty/', api.addItem);
+router.post('/:item/:id/:price/:qty/', api.addItem);
 router.delete('/:item/', api.removeItem);
 
 

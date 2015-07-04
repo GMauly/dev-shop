@@ -28,6 +28,7 @@ function GitMember(obj) {
   this.following = '';
 
   this.price = 0;
+  this.qty = 0;
 }
 
 GitMember.prototype.getPrice = function (callback) {
@@ -49,7 +50,9 @@ GitMember.prototype.load = function (react) {
     self.getFollowing(function () {
       self.getStarred(function () {
         self.getPrice(function () {
-          react.forceUpdate();
+          if (react) {
+            react.forceUpdate();
+          }
         });
       });
     });

@@ -68,10 +68,10 @@ var Search = React.createClass({
     var self = this;
     var http = require('http');
     var options = {
-      host: 'localhost',
-      port: '3000',
+      host: window.location.hostname,
+      port: window.location.port,
       path: '/api/github/getMembers/' + this.state.value
-    };
+  };
 
     http.get(options, function (response) {
       response.on('data', function (data) {

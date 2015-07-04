@@ -3,11 +3,18 @@ var router = express.Router();
 
 
 var React = require('react/addons'),
-  Search = React.createFactory(require('../../react/Search/components/Search/index.jsx'));
+  Search = React.createFactory(require('../../react/Search/components/Search/index.jsx')),
+  Cart = React.createFactory(require('../../react/Cart/Cart.jsx'));
 
-/* GET home page. */
+/* GET cart page */
+router.get('/cart/', function(req, res, next) {
+  var reactHtml = React.renderToString(Cart());
+  res.render('cart', { reactOutput: reactHtml });
+
+});
+
+/* GET search page. */
 router.get('/:org?', function(req, res, next) {
-  console.log(req.sessionID);
   var reactHtml = React.renderToString(Search());
   res.render('index', { reactOutput: reactHtml });
 });

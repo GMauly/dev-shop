@@ -7,10 +7,7 @@ var React = require('react/addons'),
 
 /* GET home page. */
 router.get('/:org?', function(req, res, next) {
-  var org = req.params.org;
-  if (!org) {
-    org = '';
-  }
+  console.log(req.sessionID);
   var reactHtml = React.renderToString(Search());
   res.render('index', { reactOutput: reactHtml });
 });

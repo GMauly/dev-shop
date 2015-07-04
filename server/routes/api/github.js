@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var apicache = require('apicache').options({ debug: true }).middleware;
+var apicache = require('apicache').options({ debug: false }).middleware;
 
 var organization = require('../../api/git/organization').methods;
 var member = require('../../api/git/member').methods;

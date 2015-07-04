@@ -7,6 +7,17 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+var cookieParser = require('cookie-parser');
+var session = require('express-session')
+app.use(cookieParser());
+app.use(session({
+  secret: 'qGWdnOumla1TAIAwAR0ljXXnYQW1Wc9rkiSLkuHyMAlBLVpJzqo2E7Ra1Cbf4fvPxxEU0ANJIQJw1qzCuwZgnfWCXFM3u5ATI',
+  resave: false,
+  saveUninitialized: true
+}));
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, './server/views'));
 app.set('view engine', 'jade');

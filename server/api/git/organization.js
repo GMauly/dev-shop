@@ -6,10 +6,14 @@
 
 var request = require('request');
 
+var lastModified = new Date();
+lastModified.setMinutes(-120);
+
 var options = {
   url: '',
   headers: {
-    'User-Agent': 'urielb'
+    'User-Agent': 'urielb',
+    'If-Modified-Since': lastModified.toUTCString()
   }
 };
 
@@ -36,7 +40,9 @@ module.exports = {
       var organization = req.params.organization;
       var org = new GitOrg(organization);
       res.writeHead(200, {"Content-Type": "application/json"});
-      return org.getMembers(res.end.bind(res));
+      var mocked_json = require('../../../mocks/search-vtex');
+      //return org.getMembers(res.end.bind(res));
+      return res.end(JSON.stringify(mocked_json));
     }
   }
 };

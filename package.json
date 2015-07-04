@@ -7,6 +7,7 @@
     "server": "nodemon ./app.js"
   },
   "dependencies": {
+    "apicache": "0.0.12",
     "body-parser": "~1.12.4",
     "bower-files": "^3.7.0",
     "browserify": "^10.2.4",

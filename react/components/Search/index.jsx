@@ -17,7 +17,7 @@ var Search = React.createClass({
 
   getInitialState: function() {
     return {
-      value: 'default'
+      value: ''
     };
   },
 
@@ -60,7 +60,9 @@ var Search = React.createClass({
     var members = this.props.members;
     return (
       <div id="table-area">
-        <input className="input-large" id="search" type="text" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} />
+        <div class="input-group">
+          <input className="form-control" placeholder="Nome da organização" id="search" type="text" value={value} onKeyDown={this.handleKeyDown} onChange={this.handleChange} />
+        </div>
 
         <MembersList members={members} />
       </div>

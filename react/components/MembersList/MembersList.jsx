@@ -3,6 +3,8 @@
 var React = require('react/addons');
 var Member = require('./Member.jsx');
 
+var GitMember = require('../../../server/api/git/member').GitMember;
+
 var MembersList = React.createClass({
 
   propTypes: {
@@ -24,7 +26,8 @@ var MembersList = React.createClass({
     return (
       <div id="MembersList">
         {members.map(function (member) {
-          return <Member key={member.id} data={member} />
+          var profile = new GitMember(member);
+          return <Member key={member.id} data={profile} />
         })}
       </div>
     );
